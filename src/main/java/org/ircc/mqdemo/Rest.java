@@ -14,7 +14,8 @@ public class Rest extends RouteBuilder{
         restConfiguration().component("undertow").scheme("http").port("{{my.api.port}}").bindingMode(RestBindingMode.auto);
         
 		rest("/api/")
-	   .post("logState").type(StatePojo.class).to("direct:log-service");
+		.get("logState").to("direct:log-service");
+	//    .post("logState").type(StatePojo.class).to("direct:log-service");
 
 	}
 }
