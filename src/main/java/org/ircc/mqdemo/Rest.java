@@ -11,7 +11,7 @@ public class Rest extends RouteBuilder{
 	@Override
 	public void configure() throws Exception {
 
-        restConfiguration().component("undertow").scheme("http").port("{{my.api.port}}").bindingMode(RestBindingMode.auto);
+        restConfiguration().component("undertow").scheme("http").port("8443").bindingMode(RestBindingMode.auto);
         
 		rest("/api/")
 		.get("logState").to("direct:log-service");
