@@ -18,7 +18,7 @@
 	</bean>
 	
 	<bean id="amqConnectionFactory" class="org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory">
-		<constructor-arg index="0" value= "tcp://localhost:61616" />
+		<constructor-arg index="0" value= "tcp://amq-broker-ircc-hdls-svc.amq-broker:61616" />
 	</bean>
 
 
