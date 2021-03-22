@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+		JMS Configuration 
+	-->
+	
+	<bean id="jms" class="org.apache.camel.component.jms.JmsComponent">
+        <property name="configuration">
+			<bean class="org.apache.camel.component.jms.JmsConfiguration">
+				<property name="connectionFactory" ref="amqConnectionFactory" />
+				<property name="concurrentConsumers" value="10"/>
+		    </bean>
+        </property>
+	</bean>
+	
+	<bean id="amqConnectionFactory" class="org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory">
+		<constructor-arg index="0" value= "tcp://localhost:61616" />
+	</bean>
+
+
+</beans>
