@@ -17,7 +17,7 @@ public class Route extends RouteBuilder{
                 from("direct:log-service")  
                 .setHeader("TRANSACTION_ID").simple(UUID.randomUUID().toString())
                 .setBody(simple("body")) 
-                .log("Hi")    
+                .log("log")    
                 .to("jms:SampleQueue?exchangePattern=InOnly");   
 
 	}
